@@ -9,14 +9,11 @@ package lab.pkg5_marcelarivera;
  *
  * @author Mvrivera
  */
-public class Lab5_MarcelaRivera {
+public class DarkAvengers extends Villanos{
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        
-    
+    public DarkAvengers(String nombre, String planeta, int edad, int n_muertescausadas, double altura, boolean carcel) {
+        super(nombre, planeta, edad, n_muertescausadas, altura, carcel);
     }
+    
     
 }

@@ -9,14 +9,15 @@ package lab.pkg5_marcelarivera;
  *
  * @author Mvrivera
  */
-public class Lab5_MarcelaRivera {
+public class X_men extends Superheroes{
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        
-    
+    public X_men() {
     }
+
+    public X_men(String nombre, String planeta, int edad, int n_villanosAtrapados, double altura) {
+        super(nombre, planeta, edad, n_villanosAtrapados, altura);
+    }
+    
+    
     
 }

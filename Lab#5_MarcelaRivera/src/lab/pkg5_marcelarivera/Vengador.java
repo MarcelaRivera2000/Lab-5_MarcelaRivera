@@ -12,7 +12,7 @@ package lab.pkg5_marcelarivera;
 public class Vengador extends Superheroes{
 
     public Vengador(String nombre, String planeta, int edad, int n_villanosAtrapados, double altura) {
-        super(nombre, planeta, edad, n_villanosAtrapados, altura);
+        super(nombre, planeta, edad,  altura);
     }
     
     

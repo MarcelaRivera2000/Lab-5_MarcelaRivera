@@ -15,7 +15,7 @@ public class X_men extends Superheroes{
     }
 
     public X_men(String nombre, String planeta, int edad, int n_villanosAtrapados, double altura) {
-        super(nombre, planeta, edad, n_villanosAtrapados, altura);
+        super(nombre, planeta, edad, altura);
     }
     
     

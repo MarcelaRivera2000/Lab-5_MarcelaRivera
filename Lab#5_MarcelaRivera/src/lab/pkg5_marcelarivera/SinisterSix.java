@@ -12,7 +12,7 @@ package lab.pkg5_marcelarivera;
 public class SinisterSix extends Villanos{
 
     public SinisterSix(String nombre, String planeta, int edad, int n_muertescausadas, double altura, boolean carcel) {
-        super(nombre, planeta, edad, n_muertescausadas, altura, carcel);
+        super(nombre, planeta, edad, altura);
     }
     
     

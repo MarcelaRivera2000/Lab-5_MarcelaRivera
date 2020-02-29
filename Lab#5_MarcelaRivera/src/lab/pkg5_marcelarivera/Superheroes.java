@@ -16,17 +16,31 @@ public class Superheroes {
     private String nombre,planeta;
     private int edad,n_villanosAtrapados;
     private double altura;
-
+    private String equipo;
+    
     public Superheroes() {
     }
 
-    public Superheroes(String nombre, String planeta, int edad, int n_villanosAtrapados, double altura) {
+    public Superheroes(String nombre, String planeta, int edad, double altura) {
         this.nombre = nombre;
         this.planeta = planeta;
         this.edad = edad;
         this.n_villanosAtrapados = n_villanosAtrapados;
         this.altura = altura;
     }
+
+    public Superheroes(String equipo) {
+        this.equipo = equipo;
+    }
+
+    public String getEquipo() {
+        return equipo;
+    }
+
+    public void setEquipo(String equipo) {
+        this.equipo = equipo;
+    }
+    
 
     public ArrayList<Poderes> getSuperpoderes() {
         return superpoderes;
@@ -78,7 +92,7 @@ public class Superheroes {
 
     @Override
     public String toString() {
-        return "Superheroes{" + "superpoderes=" + superpoderes + ", nombre=" + nombre + ", planeta=" + planeta + ", edad=" + edad + ", n_villanosAtrapados=" + n_villanosAtrapados + ", altura=" + altura + '}';
+        return nombre;
     }
     
     

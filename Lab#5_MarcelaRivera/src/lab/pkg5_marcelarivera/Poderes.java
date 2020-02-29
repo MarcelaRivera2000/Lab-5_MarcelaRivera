@@ -39,7 +39,7 @@ public class Poderes {
         this.descripcion = descripcion;
     }
 
-    public boolean isMortal() {
+    public boolean getMortal() {
         return mortal;
     }
 

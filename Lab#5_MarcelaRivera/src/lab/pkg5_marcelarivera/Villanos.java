@@ -21,7 +21,7 @@ public class Villanos {
     public Villanos() {
     }
 
-    public Villanos(String nombre, String planeta, int edad, int n_muertescausadas, double altura, boolean carcel) {
+    public Villanos(String nombre, String planeta, int edad, double altura) {
         this.nombre = nombre;
         this.planeta = planeta;
         this.edad = edad;
@@ -88,7 +88,7 @@ public class Villanos {
 
     @Override
     public String toString() {
-        return "Villanos{" + "poderes=" + poderes + ", nombre=" + nombre + ", planeta=" + planeta + ", edad=" + edad + ", n_muertescausadas=" + n_muertescausadas + ", altura=" + altura + ", carcel=" + carcel + '}';
+        return nombre;
     }
     
     

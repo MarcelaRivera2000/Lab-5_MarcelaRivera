@@ -59,6 +59,8 @@ public class Lab5_marcelarivera extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaSuperpoderes = new javax.swing.JTable();
         jLabel14 = new javax.swing.JLabel();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         poder_descri = new javax.swing.JTextArea();
@@ -83,15 +85,22 @@ public class Lab5_marcelarivera extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaSuperheroes = new javax.swing.JTable();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        TablaSuperVillanos = new javax.swing.JTable();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jPopupMenu1 = new javax.swing.JPopupMenu();
-        jMenu1 = new javax.swing.JMenu();
-        Eliminar = new javax.swing.JMenu();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        superequipo = new javax.swing.JComboBox<>();
+        villaequipo = new javax.swing.JComboBox<>();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
         buttonGroup2 = new javax.swing.ButtonGroup();
+        AgregarAlArbol = new javax.swing.JPopupMenu();
+        AgregarHeroe = new javax.swing.JMenu();
+        AgregarAlArbolVillano = new javax.swing.JPopupMenu();
+        AgregarVillano = new javax.swing.JMenu();
         UsuarioT = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -120,7 +129,7 @@ public class Lab5_marcelarivera extends javax.swing.JFrame {
 
         jLabel4.setText("Edad:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(23, 152, 31, 16);
+        jLabel4.setBounds(23, 152, 80, 16);
 
         jLabel5.setText("Planeta Origen:");
         jPanel1.add(jLabel5);
@@ -144,7 +153,7 @@ public class Lab5_marcelarivera extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(161, 287, 79, 32);
+        jButton2.setBounds(310, 280, 79, 32);
 
         jLabel9.setText("Nombre:");
         jPanel1.add(jLabel9);
@@ -178,7 +187,7 @@ public class Lab5_marcelarivera extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton3);
-        jButton3.setBounds(161, 644, 79, 32);
+        jButton3.setBounds(310, 640, 79, 32);
         jPanel1.add(villa_planeta);
         villa_planeta.setBounds(161, 526, 230, 38);
 
@@ -222,6 +231,24 @@ public class Lab5_marcelarivera extends javax.swing.JFrame {
         jPanel1.add(jLabel14);
         jLabel14.setBounds(420, 20, 110, 16);
 
+        jButton9.setText("(Crear Primero)Agregar poder");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton9);
+        jButton9.setBounds(20, 640, 210, 32);
+
+        jButton10.setText("(Crear Primero)Agregar poder ");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton10);
+        jButton10.setBounds(20, 280, 220, 32);
+
         jTabbedPane1.addTab("Agregar SuperHeroe", jPanel1);
 
         poder_descri.setColumns(20);
@@ -235,7 +262,7 @@ public class Lab5_marcelarivera extends javax.swing.JFrame {
         buttonGroup2.add(mortal_No);
         mortal_No.setText("No");
 
-        poder_nivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " -------------------------------", "1", "2", "3", "4", "5" }));
+        poder_nivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " -------------------------------", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
 
         jLabel15.setText("Nivel Poder:");
 
@@ -274,7 +301,7 @@ public class Lab5_marcelarivera extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
                         .addComponent(poder_nivel, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addContainerGap(244, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -306,9 +333,19 @@ public class Lab5_marcelarivera extends javax.swing.JFrame {
         jLabel20.setText("SUPERVILLANOS");
 
         ListaSuperHeroes.setModel(new DefaultListModel());
+        ListaSuperHeroes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ListaSuperHeroesMouseClicked(evt);
+            }
+        });
         jScrollPane5.setViewportView(ListaSuperHeroes);
 
         ListaSuperVillanos.setModel(new DefaultListModel());
+        ListaSuperVillanos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ListaSuperVillanosMouseClicked(evt);
+            }
+        });
         jScrollPane6.setViewportView(ListaSuperVillanos);
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
@@ -346,7 +383,7 @@ public class Lab5_marcelarivera extends javax.swing.JFrame {
                     .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(33, 33, 33)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -375,35 +412,91 @@ public class Lab5_marcelarivera extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Arbol y Lista", jPanel2);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaSuperheroes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre", "Edad", "Planeta Origen", "Altura", "Villanos Atrapados", "Poderes"
             }
-        ));
-        jScrollPane4.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Object.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane4.setViewportView(tablaSuperheroes);
+
+        TablaSuperVillanos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre", "Edad", "Planeta Origen", "Altura", "Carcel", "Muertes causadas", "Poderes"
             }
-        ));
-        jScrollPane7.setViewportView(jTable2);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
 
-        jLabel21.setText("S");
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
-        jLabel22.setText("jLabel22");
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane7.setViewportView(TablaSuperVillanos);
+
+        jLabel21.setText("SUPERHEROES");
+
+        jLabel22.setText("SUPERVILLANOS");
+
+        jButton7.setText("Agregar a equipo");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        jButton8.setText("Agregar a equipo");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        superequipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vengadores", "X-men" }));
+
+        villaequipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dark Avengers", " Sinister Six." }));
+
+        jButton11.setText("Eliminar");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+
+        jButton12.setText("Eliminar");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -411,27 +504,47 @@ public class Lab5_marcelarivera extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel22)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(47, Short.MAX_VALUE))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 864, Short.MAX_VALUE)
+                    .addComponent(jScrollPane7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(superequipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(villaequipo, 0, 0, Short.MAX_VALUE)
+                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel21)
-                    .addComponent(jLabel22))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(289, Short.MAX_VALUE))
+                .addComponent(jLabel21)
+                .addGap(8, 8, 8)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(superequipo, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton11))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addComponent(jLabel22)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(villaequipo, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton12)))
+                .addGap(21, 21, 21))
         );
 
         jTabbedPane1.addTab("Agregar a grupo", jPanel4);
@@ -453,11 +566,21 @@ public class Lab5_marcelarivera extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jMenu1.setText("jMenu1");
-        jPopupMenu1.add(jMenu1);
+        AgregarHeroe.setText("jMenu2");
+        AgregarHeroe.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AgregarHeroeMouseClicked(evt);
+            }
+        });
+        AgregarAlArbol.add(AgregarHeroe);
 
-        Eliminar.setText("jMenu2");
-        jPopupMenu1.add(Eliminar);
+        AgregarVillano.setText("jMenu2");
+        AgregarVillano.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AgregarVillanoMouseClicked(evt);
+            }
+        });
+        AgregarAlArbolVillano.add(AgregarVillano);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -514,7 +637,14 @@ public class Lab5_marcelarivera extends javax.swing.JFrame {
 
     public void llenarTabla() {
         DefaultTableModel po = (DefaultTableModel) tablaSuperpoderes.getModel();
-
+        DefaultTableModel tab = (DefaultTableModel) tablaSuperheroes.getModel();
+        DefaultTableModel te = (DefaultTableModel) TablaSuperVillanos.getModel();
+        for (int i = te.getRowCount() - 1; i >= 0; i--) {
+            te.removeRow(i);
+        }
+        for (int i = tab.getRowCount() - 1; i >= 0; i--) {
+            tab.removeRow(i);
+        }
         for (int i = po.getRowCount() - 1; i >= 0; i--) {
             po.removeRow(i);
         }
@@ -523,23 +653,56 @@ public class Lab5_marcelarivera extends javax.swing.JFrame {
             Object[] poder = {i.getDescripcion(), i.getMortal(), i.getNivelpoder()};
             po.addRow(poder);
         }
-
+        int y = 0;
+        for (Superheroes i : superheroe) {
+            String v = convertir(y);
+            Object[] poder = {i.getNombre(), i.getEdad(), i.getPlaneta(), i.getAltura(), ((Superheroes) i).getN_villanosAtrapados(), v};
+            tab.addRow(poder);
+            y++;
+        }
+        int yy = 0;
+        for (Villanos i : villanos) {
+            String v = convertir2(yy);
+            Object[] poder = {i.getNombre(), i.getEdad(), i.getPlaneta(), i.getAltura(), ((Villanos) i).getCarcel(), ((Villanos) i).getN_muertescausadas(), v};
+            te.addRow(poder);
+            y++;
+        }
+        TablaSuperVillanos.setModel(te);
+        tablaSuperheroes.setModel(tab);
         tablaSuperpoderes.setModel(po);
     }
 
+    public String convertir2(int i) {
+        String u = "";
+
+        for (Poderes j : villanos.get(i).getPoderes()) {
+            u += j;
+        }
+
+        return u;
+    }
+
+    public String convertir(int i) {
+        String u = "";
+
+        for (Poderes j : superheroe.get(i).getSuperpoderes()) {
+            u += j;
+        }
+
+        return u;
+    }
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        PaginaPrincipal.pack();
-        PaginaPrincipal.setVisible(true);
-        PaginaPrincipal.setLocationRelativeTo(this);
+   
         this.setVisible(false);
-        /* if (UsuarioT.getText().equals("stanlee") && contrat.getText().equals("spiderman99")) {
+         if (UsuarioT.getText().equals("stanlee") && contrat.getText().equals("spiderman99")) {
             PaginaPrincipal.pack();
             PaginaPrincipal.setVisible(true);
             PaginaPrincipal.setLocationRelativeTo(this);
             this.setVisible(false);
         } else {
             JOptionPane.showMessageDialog(this, "Contraseña o usuario incorrecto");
-        }*/
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void super_alturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_super_alturaActionPerformed
@@ -552,14 +715,10 @@ public class Lab5_marcelarivera extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Superheroes p = new Superheroes(super_nombre.getText(), super_planeta.getText(), Integer.parseInt(super_edad.getText()), Double.parseDouble(super_altura.getText()));
-        p.setEquipo("Vengadores");
         superheroe.add(p);
         DefaultListModel modelo = (DefaultListModel) ListaSuperHeroes.getModel();
         modelo.addElement(p);
-          p=new Superheroes("pato", "DSa", 32, 32);
-         p.setEquipo("EX-MEN");
-         superheroe.add(p);
-        modelo.addElement(p);
+        llenarTabla();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -579,86 +738,134 @@ public class Lab5_marcelarivera extends javax.swing.JFrame {
         poder_descri.setText("");
         llenarTabla();
     }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    public void arbolsuper() {
         if (ListaSuperHeroes.getSelectedIndex() >= 0) {
             DefaultTreeModel modeloARBOL = (DefaultTreeModel) Arbol.getModel();
             DefaultListModel modeloLISTA = (DefaultListModel) ListaSuperHeroes.getModel();
             int posi = ListaSuperHeroes.getSelectedIndex();
-            String equipo=superheroe.get(posi).getEquipo();
-            System.out.println(" das "+equipo+" dsa");
-            if(equipo != null){
-            DefaultMutableTreeNode nodo = (DefaultMutableTreeNode) modeloARBOL.getRoot();
-            int centinela = -1,centinela2=-1;
-            for (int i = 0; i < nodo.getChildCount(); i++) {
-                if (nodo.getChildAt(i).toString().equals("Superheroes")) {
-                     for (int j = 0; j < nodo.getChildAt(i).getChildCount(); j++) {
-                         if (nodo.getChildAt(i).getChildAt(j).toString().equals(superheroe.get(posi).getEquipo())) {
-                              ((DefaultMutableTreeNode) nodo.getChildAt(i).getChildAt(j)).add(new DefaultMutableTreeNode(superheroe.get(posi)));
-                              modeloARBOL.reload(nodo);
-                              centinela2=1;
-                         }
-                     }
-                      centinela = 1;
+            String equipo = superheroe.get(posi).getEquipo();
+            System.out.println(" das " + equipo + " dsa");
+            if (equipo != null) {
+                DefaultMutableTreeNode nodo = (DefaultMutableTreeNode) modeloARBOL.getRoot();
+                int centinela = -1, centinela2 = -1;
+                for (int i = 0; i < nodo.getChildCount(); i++) {
+                    if (nodo.getChildAt(i).toString().equals("Superheroes")) {
+                        for (int j = 0; j < nodo.getChildAt(i).getChildCount(); j++) {
+                            if (nodo.getChildAt(i).getChildAt(j).toString().equals(superheroe.get(posi).getEquipo())) {
+                                ((DefaultMutableTreeNode) nodo.getChildAt(i).getChildAt(j)).add(new DefaultMutableTreeNode(superheroe.get(posi)));
+                                modeloARBOL.reload(nodo);
+                                centinela2 = 1;
+                            }
+                        }
+                        centinela = 1;
+                    }
                 }
-            }
-                System.out.println(centinela+" "+centinela2);
-            if (centinela == -1) {
-                DefaultMutableTreeNode n1 = new DefaultMutableTreeNode("Superheroes");
-                modeloARBOL.reload(nodo); 
-                nodo.add(n1);
-            if(centinela2==-1){
-                DefaultMutableTreeNode n2 = new DefaultMutableTreeNode(superheroe.get(posi).getEquipo());
-               DefaultMutableTreeNode p1 = new DefaultMutableTreeNode(superheroe.get(posi));
-                modeloARBOL.reload(nodo);
-                n1.add(n2);
-                n2.add(p1);  
-            }
-            }
-            if(centinela==1){
-                if(centinela2==-1){
-                    for (int i = 0; i < nodo.getChildCount(); i++) {
-                if (nodo.getChildAt(i).toString().equals("Superheroes")) {
-                     for (int j = 0; j < nodo.getChildAt(i).getChildCount(); j++) {
-                         if (nodo.getChildAt(i).getChildAt(j).toString()!=(superheroe.get(posi).getEquipo())) {
-                              ((DefaultMutableTreeNode) nodo.getChildAt(i).getChildAt(j)).add(new DefaultMutableTreeNode(superheroe.get(posi)));
-                              modeloARBOL.reload(nodo);
-                           
-                         }
-                     }
+                System.out.println(centinela + " " + centinela2);
+                if (centinela == -1) {
+                    DefaultMutableTreeNode n1 = new DefaultMutableTreeNode("Superheroes");
+                    modeloARBOL.reload(nodo);
+                    nodo.add(n1);
+                    if (centinela2 == -1) {
+                        DefaultMutableTreeNode n2 = new DefaultMutableTreeNode(superheroe.get(posi).getEquipo());
+                        DefaultMutableTreeNode p1 = new DefaultMutableTreeNode(superheroe.get(posi));
+                        modeloARBOL.reload(nodo);
+                        n1.add(n2);
+                        n2.add(p1);
+                    }
                 }
-            }
-            }
-            }
-            modeloARBOL.reload();      
-            }else{
+                if (centinela == 1) {
+                    if (centinela2 == -1) {
+                        for (int i = 0; i < nodo.getChildCount(); i++) {
+                            if (nodo.getChildAt(i).toString().equals("Superheroes")) {
+                                for (int j = 0; j < nodo.getChildAt(i).getChildCount(); j++) {
+                                    if (nodo.getChildAt(i).getChildAt(j).toString() != (superheroe.get(posi).getEquipo())) {
+                                        ((DefaultMutableTreeNode) nodo.getChildAt(i).getChildAt(j)).add(new DefaultMutableTreeNode(superheroe.get(posi)));
+                                        modeloARBOL.reload(nodo);
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                modeloARBOL.reload();
+            } else {
                 JOptionPane.showMessageDialog(this, "No tiene equipo");
             }
-          
+
         } else {
             JOptionPane.showMessageDialog(this,
                     "No hay persona seleccionada");
         }
+    }
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        arbolsuper();
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    
-    
-    
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    public void arbolvilla() {
         if (ListaSuperVillanos.getSelectedIndex() >= 0) {
             DefaultTreeModel modeloARBOL = (DefaultTreeModel) Arbol.getModel();
             DefaultListModel modeloLISTA = (DefaultListModel) ListaSuperVillanos.getModel();
-
             int posi = ListaSuperVillanos.getSelectedIndex();
-            villanos.get(posi);
-            DefaultMutableTreeNode nodo = (DefaultMutableTreeNode) modeloARBOL.getRoot();
-            ((DefaultMutableTreeNode) nodo.getChildAt(1)).add(new DefaultMutableTreeNode(villanos.get(posi)));
-            modeloARBOL.reload(nodo);
+            String equipo = villanos.get(posi).getEQUIPO();
+            System.out.println(" das " + equipo + " dsa");
+            if (equipo != null) {
+                DefaultMutableTreeNode nodo = (DefaultMutableTreeNode) modeloARBOL.getRoot();
+                int centinela = -1, centinela2 = -1;
+                for (int i = 0; i < nodo.getChildCount(); i++) {
+                    if (nodo.getChildAt(i).toString().equals("Villanos")) {
+                        for (int j = 0; j < nodo.getChildAt(i).getChildCount(); j++) {
+                            if (nodo.getChildAt(i).getChildAt(j).toString().equals(villanos.get(posi).getEQUIPO())) {
+                                ((DefaultMutableTreeNode) nodo.getChildAt(i).getChildAt(j)).add(new DefaultMutableTreeNode(villanos.get(posi)));
+                                modeloARBOL.reload(nodo);
+                                centinela2 = 1;
+                            }
+                        }
+                        centinela = 1;
+                    }
+                }
+                System.out.println(centinela + " " + centinela2);
+                if (centinela == -1) {
+                    DefaultMutableTreeNode n1 = new DefaultMutableTreeNode("Villanos");
+                    modeloARBOL.reload(nodo);
+                    nodo.add(n1);
+                    if (centinela2 == -1) {
+                        DefaultMutableTreeNode n2 = new DefaultMutableTreeNode(villanos.get(posi).getEQUIPO());
+                        DefaultMutableTreeNode p1 = new DefaultMutableTreeNode(villanos.get(posi));
+                        modeloARBOL.reload(nodo);
+                        n1.add(n2);
+                        n2.add(p1);
+                    }
+                }
+                if (centinela == 1) {
+                    if (centinela2 == -1) {
+                        for (int i = 0; i < nodo.getChildCount(); i++) {
+                            if (nodo.getChildAt(i).toString().equals("Villanos")) {
+                                for (int j = 0; j < nodo.getChildAt(i).getChildCount(); j++) {
+                                    if (nodo.getChildAt(i).getChildAt(j).toString() != (villanos.get(posi).getEQUIPO())) {
+                                        ((DefaultMutableTreeNode) nodo.getChildAt(i).getChildAt(j)).add(new DefaultMutableTreeNode(villanos.get(posi)));
+                                        modeloARBOL.reload(nodo);
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                modeloARBOL.reload();
+            } else {
+                JOptionPane.showMessageDialog(this, "No tiene equipo");
+            }
 
         } else {
             JOptionPane.showMessageDialog(this,
                     "No hay persona seleccionada");
         }
+    }
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+
+        arbolvilla();
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -666,8 +873,109 @@ public class Lab5_marcelarivera extends javax.swing.JFrame {
         villanos.add(p);
         DefaultListModel modelo = (DefaultListModel) ListaSuperVillanos.getModel();
         modelo.addElement(p);
+        llenarTabla();
 
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        int fila = tablaSuperheroes.getSelectedRow();
+
+        if (fila >= 0) {
+            if (superheroe.get(fila).getSuperpoderes().size() >= 1) {
+                String equipo = (String) superequipo.getSelectedItem();
+                System.out.println(equipo);
+                superheroe.get(fila).setEquipo(equipo);
+            } else {
+                JOptionPane.showMessageDialog(this, "No tiene poderes");
+            }
+
+        }
+
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        int fila = TablaSuperVillanos.getSelectedRow();
+        if (fila >= 0) {
+            if (villanos.get(fila).getPoderes().size() >= 2) {
+                String equipo = (String) villaequipo.getSelectedItem();
+
+                villanos.get(fila).setEQUIPO(equipo);
+            } else {
+                JOptionPane.showMessageDialog(this, "No tiene poderes");
+            }
+
+        }
+
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+
+        int fila = tablaSuperpoderes.getSelectedRow();
+        if (fila >= 0) {
+
+            if (superheroe.get(superheroe.size() - 1).getSuperpoderes().size() <= 3) {
+                superheroe.get(superheroe.size() - 1).getSuperpoderes().add(poderes.get(fila));
+            }
+        }
+
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        int fila = tablaSuperpoderes.getSelectedRow();
+        if (fila >= 0) {
+            if (superheroe.get(superheroe.size() - 1).getSuperpoderes().size() <= 3) {
+                villanos.get(villanos.size() - 1).getPoderes().add(poderes.get(fila));
+            }
+
+        }
+
+
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        int fila = tablaSuperpoderes.getSelectedRow();
+        if (fila >= 0) {
+            superheroe.remove(fila);
+            llenarTabla();
+        }
+
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        int fila = TablaSuperVillanos.getSelectedRow();
+        if (fila >= 0) {
+            villanos.remove(fila);
+            llenarTabla();
+        }
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void ListaSuperHeroesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaSuperHeroesMouseClicked
+        if (ListaSuperHeroes.getSelectedIndex() >= 0) {
+            if (evt.isMetaDown()) {
+                AgregarAlArbol.show(evt.getComponent(),
+                        evt.getX(), evt.getY());
+
+            }
+        }
+    }//GEN-LAST:event_ListaSuperHeroesMouseClicked
+
+    private void ListaSuperVillanosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaSuperVillanosMouseClicked
+        if (ListaSuperVillanos.getSelectedIndex() >= 0) {
+            if (evt.isMetaDown()) {
+                AgregarAlArbolVillano.show(evt.getComponent(),
+                        evt.getX(), evt.getY());
+
+            }
+        }
+    }//GEN-LAST:event_ListaSuperVillanosMouseClicked
+
+    private void AgregarHeroeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarHeroeMouseClicked
+        arbolsuper();
+    }//GEN-LAST:event_AgregarHeroeMouseClicked
+
+    private void AgregarVillanoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarVillanoMouseClicked
+        arbolvilla();
+    }//GEN-LAST:event_AgregarVillanoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -705,20 +1013,30 @@ public class Lab5_marcelarivera extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPopupMenu AgregarAlArbol;
+    private javax.swing.JPopupMenu AgregarAlArbolVillano;
+    private javax.swing.JMenu AgregarHeroe;
+    private javax.swing.JMenu AgregarVillano;
     private javax.swing.JTree Arbol;
-    private javax.swing.JMenu Eliminar;
     private javax.swing.JList<String> ListaSuperHeroes;
     private javax.swing.JList<String> ListaSuperVillanos;
     private javax.swing.JFrame PaginaPrincipal;
+    private javax.swing.JTable TablaSuperVillanos;
     private javax.swing.JTextField UsuarioT;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JPasswordField contrat;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -741,12 +1059,10 @@ public class Lab5_marcelarivera extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -755,8 +1071,6 @@ public class Lab5_marcelarivera extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JRadioButton mortal_No;
     private javax.swing.JRadioButton mortal_Si;
     private javax.swing.JTextArea poder_descri;
@@ -765,11 +1079,14 @@ public class Lab5_marcelarivera extends javax.swing.JFrame {
     private javax.swing.JTextField super_edad;
     private javax.swing.JTextField super_nombre;
     private javax.swing.JTextField super_planeta;
+    private javax.swing.JComboBox<String> superequipo;
+    private javax.swing.JTable tablaSuperheroes;
     private javax.swing.JTable tablaSuperpoderes;
     private javax.swing.JTextField villa_altura;
     private javax.swing.JTextField villa_edad;
     private javax.swing.JTextField villa_nombre;
     private javax.swing.JTextField villa_planeta;
+    private javax.swing.JComboBox<String> villaequipo;
     // End of variables declaration//GEN-END:variables
 ArrayList<Superheroes> superheroe = new ArrayList();
     ArrayList<Villanos> villanos = new ArrayList();

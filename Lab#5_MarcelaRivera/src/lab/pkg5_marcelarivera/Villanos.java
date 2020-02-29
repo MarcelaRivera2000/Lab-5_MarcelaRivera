@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Villanos {
     private ArrayList<Poderes> poderes=new ArrayList();
-     private String nombre,planeta;
+     private String nombre,planeta,EQUIPO;
     private int edad,n_muertescausadas;
     private double altura;
     private boolean carcel;
@@ -28,6 +28,14 @@ public class Villanos {
         this.n_muertescausadas = n_muertescausadas;
         this.altura = altura;
         this.carcel = carcel;
+    }
+
+    public String getEQUIPO() {
+        return EQUIPO;
+    }
+
+    public void setEQUIPO(String EQUIPO) {
+        this.EQUIPO = EQUIPO;
     }
 
     public ArrayList<Poderes> getPoderes() {
@@ -78,7 +86,7 @@ public class Villanos {
         this.altura = altura;
     }
 
-    public boolean isCarcel() {
+    public boolean getCarcel() {
         return carcel;
     }
 

@@ -49,7 +49,7 @@ public class Poderes {
 
     @Override
     public String toString() {
-        return "Poderes{" + "nivelpoder=" + nivelpoder + ", descripcion=" + descripcion + ", mortal=" + mortal + '}';
+        return descripcion;
     }
     
     

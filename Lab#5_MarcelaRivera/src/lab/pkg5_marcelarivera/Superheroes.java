@@ -25,7 +25,7 @@ public class Superheroes {
         this.nombre = nombre;
         this.planeta = planeta;
         this.edad = edad;
-        this.n_villanosAtrapados = n_villanosAtrapados;
+        this.n_villanosAtrapados = setN_villanosAtrapados(n_villanosAtrapados);
         this.altura = altura;
     }
 
@@ -78,8 +78,8 @@ public class Superheroes {
         return n_villanosAtrapados;
     }
 
-    public void setN_villanosAtrapados(int n_villanosAtrapados) {
-        this.n_villanosAtrapados = n_villanosAtrapados;
+    public int setN_villanosAtrapados(int n_villanosAtrapados) {
+       return this.n_villanosAtrapados += n_villanosAtrapados;
     }
 
     public double getAltura() {
